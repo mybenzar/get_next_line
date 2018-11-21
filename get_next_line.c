@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 12:15:48 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/20 16:15:11 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/21 14:16:04 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 int	get_next_line(const int fd, char **line)
 {
-	static int	nb;
-	t_list		buf;
+	static char	buf;
+	char		buf_read;
+	t_list		*tmp;
+	int			nb;
 
 	nb = 0;
-	nb = read(fd, &buf, BUF_SIZE);
+	tmp->content_size = fd;
 	while (nb++ <= BUF_SIZE)
 	{
-		line[i] = buf;
-		if (buf == '\n')
-			return (
+		nb = read(fd, &buf, BUF_SIZE);
+		if (!(tmp->content = ft_strjoin(buf, buf_read)))
+			return (NULL);
+		tmp = tmp->next;
 	}
 }
