@@ -12,11 +12,21 @@
 
 #include "get_next_line.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	char **line;
 
-	ft_putnbr(get_next_line(1, line));
-	ft_putendl(line);
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		{
+			ft_putendl("open() failed");
+			return (-1);
+		}
+	close(fd);
+	while (get_next_line(fd, line) == 1)
+	{
+		write(fd, line, ft_strlen(line));
+		free(line);
+	}
 	return (0);
 }

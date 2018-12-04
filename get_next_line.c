@@ -12,6 +12,18 @@
 
 #include "get_next_line.h"
 
+int	error_return(char **buf, const int fd, char **line)
+{
+	if (fd == -1 || line == NULL)
+		return (-1);
+	if (!*buf)
+	{
+		if (!(*buf = (char*)malloc(sizeof(char) * BUF_SIZE + 1)))
+			return (-1);
+	}
+	return (0);
+}
+
 int	get_next_line(const int fd, char **line)
 {
 	static char	buf;
@@ -19,13 +31,14 @@ int	get_next_line(const int fd, char **line)
 	t_list		*tmp;
 	int			nb;
 
-	nb = 0;
+	if (error_return == -1)
+		return (-1);
 	tmp->content_size = fd;
-	while (nb++ <= BUF_SIZE)
+	while (read(fd, &buf, BUF_SIZE))
 	{
-		nb = read(fd, &buf, BUF_SIZE);
 		if (!(tmp->content = ft_strjoin(buf, buf_read)))
-			return (NULL);
+			return (-1);
 		tmp = tmp->next;
 	}
+	return (1);
 }
