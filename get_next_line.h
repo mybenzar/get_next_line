@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:31:37 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/21 14:16:03 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/12/06 18:19:51 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 # define BUFF_SIZE 32
 
 # include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include "libft/libft.h"
 
-# include "libft.h"
-
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
+int	get_next_line(const int fd, char **line);
 
 #endif
