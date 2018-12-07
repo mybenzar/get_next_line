@@ -1,1 +1,5 @@
-hello this is a test
+abcdefghijklmno Lorem Ipsum est un generateur de faux textes aleatoires. Vous choisissez le nombre de paragraphes, de mots ou de listes. 
+Vous obtenez alors un texte aleatoire que vous pourrez ensuite utiliser librement dans vos maquettes.
+
+Le texte généré est du pseudo latin et peut donner l'impression d'etre du vrai texte.
+
